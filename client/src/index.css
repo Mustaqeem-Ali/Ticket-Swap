@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Samsung Flat Design System - Ticket-Swap */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Glassmorphic Dark Mode Palette */
+    --primary: 220 14% 90%; /* Light accent for dark mode */
+    --primary-foreground: 222 84% 4.9%; /* Dark text */
+    
+    --secondary: 220 10% 20%; /* Dark glass surface */
+    --secondary-foreground: 220 14% 90%; /* Light text */
+    
+    --accent: 220 70% 60%; /* Blue accent for glassmorphism */
+    --accent-foreground: 222 84% 4.9%; /* Dark text on accent */
+    
+    --background: 222 84% 4.9%; /* Very dark background */
+    --foreground: 210 40% 98%; /* Light text */
+    
+    --card: 220 10% 8% / 0.8; /* Semi-transparent glass card */
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 220 10% 8% / 0.95; /* More opaque for popovers */
+    --popover-foreground: 210 40% 98%;
+    
+    --muted: 220 10% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --destructive: 0 62.8% 60.5%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 13% 18% / 0.3; /* Subtle glass border */
+    --input: 220 10% 12% / 0.8; /* Glass input background */
+    --ring: 220 70% 60%;
+    
+    --radius: 16px; /* More rounded for modern glass look */
+    
+    /* Glassmorphic tokens */
+    --glass-surface: 220 10% 15% / 0.1; /* Very subtle glass */
+    --glass-elevated: 220 10% 20% / 0.2; /* More prominent glass */
+    --glass-backdrop: 222 84% 4.9% / 0.8; /* Modal backdrop */
+    --shadow-glass: 0 8px 32px 0 rgb(31 38 135 / 0.37);
+    --backdrop-blur: blur(8px);
+    --backdrop-blur-heavy: blur(16px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(220 10% 8%));
+    min-height: 100vh;
+  }
+  
+  /* Glassmorphic button styles */
+  .btn-primary {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.6));
+    @apply text-primary-foreground border border-primary/30;
+    @apply px-6 py-3 rounded-[var(--radius)] font-medium transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-glass);
+    @apply transform hover:scale-[1.02] active:scale-[0.98];
+    @apply hover:bg-primary/70 hover:border-primary/50;
+  }
+  
+  .btn-buy {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.9), hsl(var(--accent) / 0.7));
+    @apply text-accent-foreground border border-accent/40;
+    @apply px-4 py-2 rounded-[var(--radius)] font-medium transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-glass);
+    @apply transform hover:scale-[1.02] active:scale-[0.98];
+    @apply hover:bg-accent/80 hover:border-accent/60;
+  }
+  
+  .btn-secondary {
+    background: hsl(var(--glass-elevated));
+    @apply text-secondary-foreground border border-border;
+    @apply px-6 py-3 rounded-[var(--radius)] font-medium transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-glass);
+    @apply transform hover:scale-[1.02] active:scale-[0.98];
+    @apply hover:bg-secondary/60 hover:border-border/60;
+  }
+  
+  .btn-accent {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.8), hsl(var(--accent) / 0.6));
+    @apply text-accent-foreground border border-accent/30;
+    @apply px-6 py-3 rounded-[var(--radius)] font-medium transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-glass);
+    @apply transform hover:scale-[1.02] active:scale-[0.98];
+    @apply hover:bg-accent/70 hover:border-accent/50;
+  }
+  
+  /* Glassmorphic input styles */
+  .input-field {
+    background: hsl(var(--input));
+    @apply border border-border rounded-[var(--radius)];
+    @apply px-4 py-3 text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    @apply transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.1);
+  }
+  
+  /* Glassmorphic card styles */
+  .card-flat {
+    background: hsl(var(--card));
+    @apply rounded-[var(--radius)] border border-border;
+    @apply transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .card-elevated {
+    background: hsl(var(--glass-elevated));
+    @apply rounded-[var(--radius)] border border-border/40;
+    @apply transition-all duration-300;
+    backdrop-filter: var(--backdrop-blur-heavy);
+    box-shadow: var(--shadow-glass), 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    @apply transform hover:scale-[1.01] hover:border-border/60;
+  }
+  
+  /* Smooth animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+  
+  .slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+}
+
+@layer components {
+  /* Glassmorphic profile dropdown styles */
+  .profile-dropdown {
+    @apply absolute right-0 top-full mt-2 w-80 z-50;
+    background: linear-gradient(135deg, 
+      hsl(220 10% 8% / 0.95), 
+      hsl(220 15% 5% / 0.9)
+    );
+    @apply rounded-[var(--radius)] border border-border/40;
+    @apply transform origin-top-right;
+    backdrop-filter: var(--backdrop-blur-heavy);
+    box-shadow: var(--shadow-glass), 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+  
+  /* Glassmorphic table styles for tickets */
+  .tickets-table {
+    @apply w-full border-collapse;
+  }
+  
+  .tickets-table th {
+    background: hsl(var(--glass-surface));
+    @apply text-left p-3 font-medium text-sm text-foreground;
+    @apply border-b border-border/30;
+    backdrop-filter: var(--backdrop-blur);
+  }
+  
+  .tickets-table td {
+    @apply p-3 text-sm border-b border-border/20 text-foreground;
+    @apply hover:bg-glass-surface transition-colors duration-150;
+    backdrop-filter: var(--backdrop-blur);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes confirmPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glassmorphic ticket result card */
+.ticket-card {
+  background: hsl(var(--card));
+  @apply rounded-[var(--radius)] border border-border/40;
+  @apply transition-all duration-300;
+  backdrop-filter: var(--backdrop-blur);
+  box-shadow: var(--shadow-glass);
+  @apply transform hover:scale-[1.01] hover:border-accent/50;
+}
+
+/* Confirmation animation */
+.confirm-animation {
+  animation: confirmPulse 0.6s ease-in-out;
+}
+
+/* Glassmorphic popup overlay */
+.popup-overlay {
+  background: hsl(var(--glass-backdrop));
+  @apply fixed inset-0 z-50;
+  @apply flex items-center justify-center p-4;
+  backdrop-filter: var(--backdrop-blur-heavy);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.popup-content {
+  background: hsl(var(--glass-elevated));
+  @apply rounded-[var(--radius)] border border-border/40;
+  backdrop-filter: var(--backdrop-blur-heavy);
+  box-shadow: var(--shadow-glass), 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  @apply p-6 max-w-md w-full;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.3));
+  border-radius: 3px;
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.5));
+}
+
+/* Global scrollbar for all elements */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  border: 1px solid hsl(var(--border) / 0.1);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.4), hsl(var(--accent) / 0.4));
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
