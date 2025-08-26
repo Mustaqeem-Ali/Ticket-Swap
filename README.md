@@ -1,9 +1,7 @@
 # Ticket-Swap Marketplace
 
-![Ticket Swap Banner](https://i.imgur.com/your-banner-image.png) **Ticket-Swap** is a full-stack web application built with the MERN stack that provides a secure, reliable, and user-friendly marketplace for the peer-to-peer resale of various types of tickets. It solves the common problem of non-refundable tickets by connecting sellers with interested buyers in a trusted environment.
+ **Ticket-Swap** is a full-stack web application built with the MERN stack that provides a secure, reliable, and user-friendly marketplace for the peer-to-peer resale of various types of tickets. It solves the common problem of non-refundable tickets by connecting sellers with interested buyers in a trusted environment.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/your-username/ticket-swap-project?style=social)](https://github.com/your-username/ticket-swap-project/stargazers)
 
 ---
 
